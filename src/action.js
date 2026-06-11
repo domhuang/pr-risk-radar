@@ -8,7 +8,9 @@ import { formatMarkdown } from "./format.js";
 const execFileAsync = promisify(execFile);
 
 function getInput(name, fallback = "") {
-  return process.env[`INPUT_${name.toUpperCase().replaceAll("-", "_")}`] || fallback;
+  const canonicalKey = `INPUT_${name.toUpperCase().replaceAll(" ", "_")}`;
+  const normalizedKey = `INPUT_${name.toUpperCase().replaceAll(/[\s-]/g, "_")}`;
+  return process.env[canonicalKey] || process.env[normalizedKey] || fallback;
 }
 
 async function readEvent() {

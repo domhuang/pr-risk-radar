@@ -82,7 +82,11 @@ async function main() {
   }
 
   console.log(markdown);
-  await postComment(event, markdown);
+  try {
+    await postComment(event, markdown);
+  } catch (error) {
+    console.warn(error.message);
+  }
 
   if (shouldFail(result.risk, failOn)) {
     process.exitCode = 1;

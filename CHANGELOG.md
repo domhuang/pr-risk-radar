@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1 - 2026-06-11
+
+- Fixed GitHub Action input handling for hyphenated input names.
+- Passed the GitHub token explicitly in the example workflow.
+- Made pull request comment failures non-blocking while still writing the Actions summary.
+
 ## v0.1.0 - 2026-06-11
 
 - Added the first PR Risk Radar CLI.

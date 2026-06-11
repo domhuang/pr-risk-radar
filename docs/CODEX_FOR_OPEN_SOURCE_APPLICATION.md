@@ -10,6 +10,8 @@ PR Risk Radar helps open-source maintainers reduce pull request review burden by
 
 This project targets a common open-source maintenance problem: PR triage. It helps maintainers decide where review attention is needed first, especially when contributor volume grows and review time is limited.
 
+Repository URL: https://github.com/domhuang/pr-risk-radar
+
 ## API credits use
 
 We would use API credits to improve maintainer automation: smarter PR summaries, configurable risk explanations, issue triage, release-note drafts, and security-oriented review prompts. Credits would be used only for project maintenance and open-source contributor support.

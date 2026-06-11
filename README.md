@@ -1,5 +1,9 @@
 # PR Risk Radar
 
+[![CI](https://github.com/domhuang/pr-risk-radar/actions/workflows/ci.yml/badge.svg)](https://github.com/domhuang/pr-risk-radar/actions/workflows/ci.yml)
+[![PR Risk Radar](https://github.com/domhuang/pr-risk-radar/actions/workflows/pr-risk-radar.yml/badge.svg)](https://github.com/domhuang/pr-risk-radar/actions/workflows/pr-risk-radar.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
+
 PR Risk Radar is a small GitHub Action and CLI that helps maintainers spot risky pull requests before review time disappears.
 
 It scans changed files and highlights review focus areas such as auth, payments, database migrations, CI/deployment changes, dependency updates, large diffs, and source changes without tests.
@@ -49,7 +53,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: YOUR_GITHUB_USERNAME/pr-risk-radar@v0.1.0
+      - uses: domhuang/pr-risk-radar@v0.1.0
         with:
           comment: "true"
           fail-on: none
@@ -80,6 +84,7 @@ npx pr-risk-radar --base main --head feature-branch --format json --output repor
 - Existing comment updates instead of duplicate PR comments
 - Optional SARIF output
 - Better monorepo package detection
+- AI-assisted risk explanations for maintainers who opt in
 
 ## Contributing
 

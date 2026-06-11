@@ -25,10 +25,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_GITHUB_USERNAME/pr-risk-radar.git"
+    "url": "git+https://github.com/domhuang/pr-risk-radar.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_GITHUB_USERNAME/pr-risk-radar/issues"
+    "url": "https://github.com/domhuang/pr-risk-radar/issues"
   },
-  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/pr-risk-radar#readme"
+  "homepage": "https://github.com/domhuang/pr-risk-radar#readme"
 }

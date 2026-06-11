@@ -23,9 +23,13 @@ async function fetchBaseRef(baseSha) {
   if (!baseSha) {
     return;
   }
-  await execFileAsync("git", ["fetch", "--no-tags", "--depth=100", "origin", baseSha], {
-    maxBuffer: 1024 * 1024 * 10
-  });
+  try {
+    await execFileAsync("git", ["fetch", "--no-tags", "--depth=100", "origin", baseSha], {
+      maxBuffer: 1024 * 1024 * 10
+    });
+  } catch {
+    // actions/checkout with fetch-depth: 0 usually already has the base commit.
+  }
 }
 
 async function postComment(event, body) {

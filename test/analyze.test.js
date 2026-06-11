@@ -22,6 +22,13 @@ test("marks ordinary source plus tests as low risk", () => {
   assert.equal(result.risk, "low");
 });
 
+test("marks source changes without tests as medium risk", () => {
+  const result = analyzeChanges([{ filename: "src/button.ts", additions: 20, deletions: 5 }]);
+
+  assert.equal(result.risk, "medium");
+  assert.ok(result.findings.some((finding) => finding.id === "no-tests"));
+});
+
 test("marks dependency lockfile changes as medium risk", () => {
   const result = analyzeChanges([{ filename: "package-lock.json", additions: 300, deletions: 250 }]);
 

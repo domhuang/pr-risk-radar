@@ -89,10 +89,11 @@ function addFinding(findings, finding) {
 function getRisk(findings, totals) {
   const score = findings.reduce((sum, finding) => sum + severityScore[finding.severity] * finding.count, 0);
   const hasHigh = findings.some((finding) => finding.severity === "high");
+  const hasMedium = findings.some((finding) => finding.severity === "medium");
   if (hasHigh || score >= 8 || totals.additions + totals.deletions >= 900) {
     return "high";
   }
-  if (score >= 3 || totals.additions + totals.deletions >= 300) {
+  if (hasMedium || score >= 3 || totals.additions + totals.deletions >= 300) {
     return "medium";
   }
   return "low";

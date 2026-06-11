@@ -1,0 +1,27 @@
+name: PR Risk Radar
+description: Flags risky pull request changes so maintainers know where to review first.
+author: pr-risk-radar maintainers
+branding:
+  icon: activity
+  color: orange
+inputs:
+  base:
+    description: Base git ref or SHA.
+    required: false
+  head:
+    description: Head git ref or SHA.
+    required: false
+  comment:
+    description: Post a PR comment with the risk report.
+    required: false
+    default: "true"
+  github-token:
+    description: GitHub token used for PR comments.
+    required: false
+  fail-on:
+    description: Fail the workflow for none, medium, or high risk.
+    required: false
+    default: none
+runs:
+  using: node20
+  main: src/action.js

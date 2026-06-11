@@ -1,0 +1,34 @@
+{
+  "name": "pr-risk-radar",
+  "version": "0.1.0",
+  "description": "A tiny PR risk scanner for maintainers who need fast review focus.",
+  "type": "module",
+  "bin": {
+    "pr-risk-radar": "./bin/pr-risk-radar.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node bin/pr-risk-radar.js --base HEAD --head HEAD --format json"
+  },
+  "keywords": [
+    "github-action",
+    "pull-request",
+    "maintainers",
+    "code-review",
+    "open-source",
+    "risk-analysis"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_GITHUB_USERNAME/pr-risk-radar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/pr-risk-radar/issues"
+  },
+  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/pr-risk-radar#readme"
+}

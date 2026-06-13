@@ -1,6 +1,6 @@
 {
   "name": "pr-risk-radar",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A tiny PR risk scanner for maintainers who need fast review focus.",
   "type": "module",
   "bin": {

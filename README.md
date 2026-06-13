@@ -53,7 +53,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: domhuang/pr-risk-radar@v0.1.1
+      - uses: domhuang/pr-risk-radar@v0.1.2
         with:
           comment: "true"
           fail-on: none

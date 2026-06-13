@@ -4,6 +4,7 @@ import { promisify } from "node:util";
 import { collectGitChanges } from "./collect-git.js";
 import { analyzeChanges } from "./analyze.js";
 import { formatMarkdown } from "./format.js";
+import { upsertIssueComment } from "./comment.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -40,24 +41,10 @@ async function postComment(event, body) {
   const repo = process.env.GITHUB_REPOSITORY;
   const number = event.pull_request?.number;
 
-  if (!shouldComment || !token || !repo || !number) {
+  if (!shouldComment) {
     return;
   }
-
-  const response = await fetch(`https://api.github.com/repos/${repo}/issues/${number}/comments`, {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${token}`,
-      accept: "application/vnd.github+json",
-      "content-type": "application/json",
-      "user-agent": "pr-risk-radar"
-    },
-    body: JSON.stringify({ body })
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to post PR comment: ${response.status} ${await response.text()}`);
-  }
+  await upsertIssueComment({ repo, number, token, body });
 }
 
 function shouldFail(actualRisk, failOn) {
